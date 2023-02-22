@@ -1,40 +1,30 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-synthesis: none;
   line-height: 1.5;
-  // color: rgba(255, 255, 255, 0.87);
-  // color-scheme: light dark;
   text-rendering: optimizelegibility;
-  text-size-adjust: 100%;
   background-color: #242424;
 }
 
 body {
-  display: flex;
-  min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  place-items: center;
+  font-size: 1.6rem;
 }
 
-#app {
-  max-width: 1280px;
-  padding: 2rem;
-  margin: 0 auto;
-  text-align: center;
+a {
+  color: unset;
+  text-decoration: none;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
   }
 
   button {
