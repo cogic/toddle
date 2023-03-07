@@ -53,13 +53,13 @@ onMounted(() => {
       <div class="rabbit-wrap">
         <div class="rabbit">
           <img
-            src="@/assets/black-rabbit-fill.svg"
+            src="@/assets/images/black-rabbit-fill.svg"
             class="face"
             alt="cogic"
           />
           <img
             ref="eyes"
-            src="@/assets/black-rabbit-eyes.svg"
+            src="@/assets/images/black-rabbit-eyes.svg"
             class="eyes"
             alt="cogic"
           />

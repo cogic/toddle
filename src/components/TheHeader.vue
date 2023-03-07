@@ -26,7 +26,7 @@ watch(
           <img
             v-if="routeName !== 'Home'"
             class="logo"
-            src="@/assets/cogic.svg"
+            src="@/assets/images/cogic.svg"
             alt="Toddle"
           />
         </Transition>
@@ -42,7 +42,7 @@ watch(
         target="_blank"
       >
         <img
-          src="@/assets/github.svg"
+          src="@/assets/images/github.svg"
           alt=""
         />
       </a>
@@ -118,7 +118,7 @@ header {
   }
 
   a.github {
-    height: 30px;
+    height: 3rem;
 
     img {
       height: 100%;

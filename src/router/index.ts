@@ -4,6 +4,10 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      redirect: { name: 'Home' },
+    },
+    {
       path: '/home',
       name: 'Home',
       component: () => import('@/views/HomePage.vue'),
@@ -12,6 +16,11 @@ const router = createRouter({
       path: '/works',
       name: 'Works',
       component: () => import('@/views/WorksCollection.vue'),
+    },
+    {
+      path: '/works/:workId',
+      name: 'WorkView',
+      component: () => import('@/views/WorkView.vue'),
     },
   ],
 });
