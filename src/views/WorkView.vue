@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
 import { shallowRef } from 'vue';
 import { useWorksStore } from '@/store';
 
 let workComponent: any = shallowRef();
-const route = useRoute();
 
-// 从 URL 中获取 workId
-const workId = route.params.workId as string;
+const work = useWorksStore().curWork;
 
-// 根据 workId 动态导入组件
-import(`@/components/works/${useWorksStore().workList[workId].fileName}.vue`).then((component) => {
-  workComponent.value = component.default;
-});
+// 根据 curWork 动态导入组件
+if (work != undefined) {
+  import(`@/components/works/${work.fileName}.vue`).then((component) => {
+    workComponent.value = component.default;
+  });
+}
 </script>
 
 <template>

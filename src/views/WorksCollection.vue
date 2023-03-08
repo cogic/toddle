@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import router from '@/router';
 import { useWorksStore } from '@/store';
 import { storeToRefs } from 'pinia';
 
@@ -13,33 +12,34 @@ let { workList } = storeToRefs(useWorksStore());
         v-for="(workItem, key) in workList"
         :key="key"
         class="work-item"
-        @click="router.push({ name: 'WorkView', params: { workId: String(key) } })"
       >
-        <div class="preview">
-          <img
-            class="preview-img"
-            :src="'/src/assets/images/works/' + workItem.image"
-            @error="
-              if ($event.target) {
-                ($event.target as HTMLImageElement).src = '/src/assets/images/carrot.png';
-              }
-            "
-            alt=""
-          />
-          <div
-            v-if="workItem.description?.trim().length > 0"
-            class="description"
-            :title="workItem.description"
-          >
-            {{ workItem.description }}
+        <RouterLink :to="{ name: 'WorkView', params: { workId: String(key) } }">
+          <div class="preview">
+            <img
+              class="preview-img"
+              :src="'/src/assets/images/works/' + workItem.image"
+              @error="
+                if ($event.target) {
+                  ($event.target as HTMLImageElement).src = '/src/assets/images/carrot.png';
+                }
+              "
+              alt=""
+            />
+            <div
+              v-if="workItem.description?.trim().length > 0"
+              class="description"
+              :title="workItem.description"
+            >
+              {{ workItem.description }}
+            </div>
           </div>
-        </div>
-        <div
-          v-if="workItem.label?.trim().length > 0"
-          class="label"
-        >
-          {{ workItem.label }}
-        </div>
+          <div
+            v-if="workItem.label?.trim().length > 0"
+            class="label"
+          >
+            {{ workItem.label }}
+          </div>
+        </RouterLink>
       </li>
     </ul>
   </div>
@@ -120,6 +120,7 @@ ul.works-container {
       border-radius: 0 0 5px 5px;
       opacity: 0;
       animation: drop 0.5s ease-in forwards;
+      transition: color 0.3s;
     }
 
     &:hover {
@@ -130,6 +131,10 @@ ul.works-container {
       .description {
         bottom: 0;
         opacity: 1;
+      }
+
+      .label {
+        color: #000000dc;
       }
     }
   }

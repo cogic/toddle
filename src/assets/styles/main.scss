@@ -10,10 +10,33 @@
   background-color: #242424;
 }
 
+html,
+body {
+  scrollbar-color: #ffffff8c transparent;
+  scrollbar-width: thin;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
   font-size: 1.6rem;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-track {
+  background: rgb(204, 204, 204);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(65, 65, 65);
+}
+
+::-webkit-scrollbar {
+  // 滚动条宽度
+  $scrollbar-width: 8px;
+
+  width: $scrollbar-width;
+  height: $scrollbar-width;
 }
 
 a {

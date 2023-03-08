@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import TheHeader from '@/components/TheHeader.vue';
+import TheToolBar from '@/components/TheToolBar.vue';
 </script>
 
 <template>
   <div>
     <TheHeader />
+    <Transition name="slide-fade">
+      <TheToolBar v-if="$route.meta.toolbar" />
+    </Transition>
     <RouterView v-slot="{ Component }">
       <Transition
         name="slide-fade"
@@ -27,4 +31,14 @@ import TheHeader from '@/components/TheHeader.vue';
   opacity: 0;
   transform: scale(0.9);
 }
+
+// .drop-enter-active,
+// .drop-leave-active {
+//   transition: 2s ease-in-out;
+// }
+
+// .drop-enter-from,
+// .drop-leave-to {
+//   opacity: 0;
+// }
 </style>
